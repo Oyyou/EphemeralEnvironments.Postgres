@@ -9,5 +9,11 @@ services:
       POSTGRES_PASSWORD: Password123!
     volumes:
       - ./sql:/docker-entrypoint-initdb.d
+    networks:
+      - ee_net
     ports:
-      - "5433:5432"
+      - "5432:5432"
+
+networks:
+  ee_net:
+    external: true
